@@ -1,32 +1,8 @@
 from typing import Dict, List
 import uuid
-
-from ..models.product import BaseProduct, ProductOut, ProductIn, ProductStorage
-from ..utils.product import convert_product_in_to_storage, convert_product_storage_to_out
-
-
-class BaseProductService:
-    """Базовый класс для функционала работы с продуктами"""
-
-    def get_by_id(self, id: uuid.UUID | int) -> ProductOut | None:
-        """Находит продукт по id"""
-        raise NotImplementedError
-
-    def get_all(self, limit: int, skip: int) -> List[ProductOut]:
-        """Находит все продукты"""
-        raise NotImplementedError
-
-    def create(self, product: ProductIn) -> ProductOut:
-        """Создает продукт"""
-        raise NotImplementedError
-
-    def update(self, id: uuid.UUID | int, product: BaseProduct) -> ProductOut | None:
-        """Обновляет информацию о продукте"""
-        raise NotImplementedError
-
-    def delete(self, id: uuid.UUID | int) -> ProductOut:
-        """Удаляет продукт"""
-        raise NotImplementedError
+from app.models.product import BaseProduct, ProductDB, ProductOut, ProductIn, ProductStorage
+from app.utils.product import convert_product_in_to_storage, convert_product_storage_to_out
+from app.services.product.base import BaseProductService
 
 
 class ProductTmpService(BaseProductService):
