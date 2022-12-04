@@ -3,8 +3,8 @@ from typing import List
 from app.models.product import ProductOut, ProductIn, BaseProduct
 from app.utils.product import convert_product_prisma_to_out
 
-from prisma.models import Product
 from prisma import Prisma
+from prisma.models import Product
 
 
 class PrismaProductService:
